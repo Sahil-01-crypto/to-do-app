@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-do-list</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>TO-DO LIST</h1>
+    <div class="background">
+        <h1>To-DO-LIST</h1>
+        <div class="todobox">
+            <div class="left">
+                <form action=""  id="form" class="form">
+                    <input id="inputbox" class="inputbox" type="text" placeholder="Enter  Your Task">
+                    <input  id="submitbox" class="submitbox" type="submit" value="Add">
+                </form>
+                <div class="error"></div>
+
+                <div class="taskcounter">
+                    <div class="total">
+                        
+                    </div>
+                    <p>Task Completed:<span class="done">0</span></p>
+                    <p>Task Pending:<span class ="pending">0</span></p>
+                    
+                </div>
+            </div>
+
+            <div class="right"> 
+                <div class="listcont">
+                    <ul class="toddos">
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
+
+<script type="module" src="script.js"></script>
+
 </html>

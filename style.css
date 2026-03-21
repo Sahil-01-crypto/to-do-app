@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    width: 100%;
+    height: 100%;
+}
+.background{
+    width: 100%;
+    height: 100%;
+    background-image: url(background_image.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.background h1{
+    padding-top: 2vh;
+    text-align: center;
+    font-size: 6vh;
+    font-weight: 900;
+}
+
+/* the todo container */
+.todobox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+     transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-image: linear-gradient(to right , black , rgb(65, 65, 65) );
+    border-radius: 15px;
+    display: flex;
+    box-shadow: 0px 1px 20px 2px white;
+    
+}
+.form{
+    display: flex;
+}
+.left{
+margin: 10vh;
+color: white;
+
+}
+.inputbox{
+    width: 40vh;
+    height: 6vh;
+    border-radius: 5vh;
+    padding: 2vh;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+}
+.submitbox{
+    margin-left: 5vh;
+    width: 10vh;
+    height: 5vh;
+    border-radius: 30%;
+    text-align: center;
+    font-size: 2vh;
+}
+
+/* right containe*/
+.right{
+    margin-top: 50px;
+    width: 50%;
+    height: 78%;
+    background-color: antiquewhite;
+    border-width: 2px ;
+    border-radius: 10px;
+    border: 2px solid gray ;
+
+}
