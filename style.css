@@ -171,6 +171,7 @@ input[type="checkbox"]:checked {
 
 .toddos {
     list-style-type: none;
+    padding-bottom:8px;
 
 }
 
@@ -183,6 +184,8 @@ input[type="checkbox"]:checked {
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+    border-bottom: 1px solid gray ;
+    transition: all 0.3s ease;
 }
 
 .listwa span {
@@ -198,6 +201,8 @@ input[type="checkbox"]:checked {
     border-radius: 3vh;
     font-weight: 600;
     font-size: 2vh;
+    transition: all 0.3s ease-in-out;
+    outline: none;
 }
 
 .deletebtn {
@@ -207,19 +212,25 @@ input[type="checkbox"]:checked {
     border-radius: 3vh;
     font-weight: 600;
     font-size: 2vh;
+     transition: all 0.3s ease-in-out;
 }
 
 .listhr {
     margin: 1vw;
     width: 100%;
-    border: 1px solid gray
+    border: 1px solid gray;
 }
+.edit:hover ,.deletebtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px cyan;
+}
+
 
 
 /* responsiveness */
 @media (max-width: 768px) {
     .todobox {
-        padding: 5px, 20px;
+        padding-top: 2px;
         flex-direction: column;
         align-items: center;
         width: 95%;

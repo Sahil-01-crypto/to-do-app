@@ -6,7 +6,7 @@ let to_do = document.querySelector(".toddos")
 let total = document.querySelector(".total")
 let done = document.querySelector(".done")
 let pending = document.querySelector(".pending")
-let notask = document.querySelector(".notask")
+
 
 //load the existing task if available .. else return empty array 
 let todos = JSON.parse(localStorage.getItem("todos")) || []
@@ -48,7 +48,7 @@ function displayTodos() {
     //if no task 
     if (todos.length === 0) {
         let emptymsg = document.createElement("p")
-        emptymsg.textContent = "No tasks available"
+        emptymsg.textContent =  "📭 No tasks yet Add your first task!";
         emptymsg.classList.add("emptymsg")
 
         to_do.appendChild(emptymsg)
@@ -62,16 +62,19 @@ function displayTodos() {
         let li = document.createElement("li")
         li.classList.add("listwa")
 
-        if (text.completed) {
-            li.style.textDecoration = "line-through"
+       
+        let span = document.createElement("span");
+        span.textContent = text.task
+
+         if (text.completed) {
+            span.style.textDecoration = "line-through"
+            span . style.opacity=0.6
 
         }
         else {
-            li.style.textDecoration = "none"
+            span.style.textDecoration = "none"
         }
 
-        let span = document.createElement("span");
-        span.textContent = text.task
 
         // checkbox
         let checkbox = document.createElement("input")
@@ -125,14 +128,13 @@ function displayTodos() {
 
 
 
-        let hr = document.createElement("hr")
-        hr.classList.add("listhr")
+  
         li.appendChild(checkbox)
         li.appendChild(span)
         li.appendChild(editbtn)
         li.appendChild(delbtn)
         to_do.appendChild(li)
-        to_do.appendChild(hr)
+    
 
     })
 }
