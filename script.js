@@ -45,16 +45,24 @@ function displayTodos() {
     done.textContent = completed;
     pending.textContent = todos.length - completed;
 
-    //if no task 
-    if (todos.length === 0) {
-        let emptymsg = document.createElement("p")
-        emptymsg.textContent =  "📭 No tasks yet Add your first task!";
-        emptymsg.classList.add("emptymsg")
+    // if no task
+if (todos.length === 0) {
+    to_do.innerHTML = ""; 
 
-        to_do.appendChild(emptymsg)
-        return
+    let imgcont = document.createElement("div");
+    imgcont.classList.add("emptyimage");
 
-    }
+    let img = document.createElement("img");
+    img.classList.add("image");
+
+    img.src = "empty.png"; 
+    img.alt = "No tasks";
+
+    imgcont.appendChild(img);
+    to_do.appendChild(imgcont);
+
+    return;
+}
 
 
 
