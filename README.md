@@ -9,7 +9,7 @@
 
 ## 🚀 Live Demo
 
-👉 https://sahil-01-crypto.github.io/todo-app/ *(Add this after deploying)*
+👉 https://sahil-01-crypto.github.io/to-do-app/
 
 ---
 
@@ -31,11 +31,7 @@ It helps users manage daily tasks efficiently with real-time updates and persist
 
 ---
 
-## 📸 Screenshot
 
-![App Screenshot](https://via.placeholder.com/800x400.png?text=Add+Your+Screenshot+Here)
-
----
 
 ## 🛠️ Tech Stack
 
