@@ -3,9 +3,10 @@ let input = document.querySelector("#inputbox")
 let submit = document.querySelector("#submitbox")
 let error = document.querySelector(".error")
 let to_do = document.querySelector(".toddos")
-let total = document . querySelector(".total")
-let done = document . querySelector(".done")
+let total = document.querySelector(".total")
+let done = document.querySelector(".done")
 let pending = document.querySelector(".pending")
+let notask = document.querySelector(".notask")
 
 //load the existing task if available .. else return empty array 
 let todos = JSON.parse(localStorage.getItem("todos")) || []
@@ -29,7 +30,7 @@ form.addEventListener("submit", function (e) {
         task: input.value,
         completed: false
     });
-localStorage.setItem("todos", JSON.stringify(todos))
+    localStorage.setItem("todos", JSON.stringify(todos))
 
     input.value = "";
 
@@ -44,56 +45,59 @@ function displayTodos() {
     done.textContent = completed;
     pending.textContent = todos.length - completed;
 
-    
-   
+    //if no task 
+    if (todos.length === 0) {
+        let emptymsg = document.createElement("p")
+        emptymsg.textContent = "No tasks available"
+        emptymsg.classList.add("emptymsg")
 
-    
-    
+        to_do.appendChild(emptymsg)
+        return
+
+    }
+
+
+
     todos.forEach(function (text, index) {
-       
-
         let li = document.createElement("li")
-       
+        li.classList.add("listwa")
+
+        if (text.completed) {
+            li.style.textDecoration = "line-through"
+
+        }
+        else {
+            li.style.textDecoration = "none"
+        }
+
         let span = document.createElement("span");
-        span . textContent= text .task
+        span.textContent = text.task
 
         // checkbox
         let checkbox = document.createElement("input")
         checkbox.type = "checkbox"
-        checkbox.checked= text.completed
-        checkbox.addEventListener("change" , function(){
-            if(checkbox.checked){
-               
-                
-                //update the  array 
-                todos[index].completed=checkbox.checked;
+        checkbox.checked = text.completed
+        checkbox.addEventListener("change", function () {
+            todos[index].completed = checkbox.checked;
 
-                // adding line through if checked
-                li.style.textDecoration="line-through"
-                localStorage.setItem("todos", JSON.stringify(todos))
-                
+            localStorage.setItem("todos", JSON.stringify(todos))
 
-            }
-            else{
-                todos[index].completed =checkbox.checked
-                li.style.textDecoration="none"
-                  localStorage.setItem("todos", JSON.stringify(todos))
-                
-            }
-            displayTodos()
-        
-            
-            
+            displayTodos();
+
+
+
+
         })
 
 
         // Delete button
         let delbtn = document.createElement("button")
+        delbtn.classList.add("deletebtn")
         delbtn.innerText = "Delete"
 
         delbtn.addEventListener("click", function () {
             todos.splice(index, 1);
-          
+
             localStorage.setItem("todos", JSON.stringify(todos))
 
             displayTodos();
@@ -102,28 +106,33 @@ function displayTodos() {
 
 
         //edit
-        span.addEventListener("dblclick", function () {
-            let val = prompt("Enter The Task")
-
-            if (val.trim() === "") return
-            // /updating the array
+        let editbtn = document.createElement("button")
+        editbtn.textContent = "Edit"
+        editbtn.classList.add("edit")
+        editbtn.addEventListener("click", function () {
+            let val = prompt("Enter  the Task")
+            if (val === null || val.trim() === "") {
+                return
+            }
             todos[index].task = val;
-            
 
-            // save  in our localstorage
             localStorage.setItem("todos", JSON.stringify(todos))
 
-            // re-render UI
-            displayTodos();
-
-
+            displayTodos()
 
         })
-        
+
+
+
+
+        let hr = document.createElement("hr")
+        hr.classList.add("listhr")
         li.appendChild(checkbox)
         li.appendChild(span)
+        li.appendChild(editbtn)
         li.appendChild(delbtn)
         to_do.appendChild(li)
+        to_do.appendChild(hr)
 
     })
 }
