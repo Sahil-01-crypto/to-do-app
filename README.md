@@ -24,7 +24,7 @@ It helps users manage daily tasks efficiently with real-time updates and persist
 
 ✔️ Add tasks
 ✔️ Delete tasks
-✔️ Edit tasks (double-click support)
+✔️ Edit tasks 
 ✔️ Mark tasks as completed
 ✔️ Task counter (Total / Done / Pending)
 ✔️ Local Storage support (data saved after refresh)
